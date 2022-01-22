@@ -1,17 +1,17 @@
 .fas{
-    color: green;
+    color: rgb(13, 128, 13);
 }
 
 .app-name{
-    font-family: 'Spectral', serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 .but1, .but2, .title-modal1, .go1, .title-modal2, .go2{
-    font-family: 'Spectral', serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 .flor{
     text-align: center;
     color: green;
-    font-family: 'Spectral', serif;
+    font-family: 'Nunito', sans-serif;
 }

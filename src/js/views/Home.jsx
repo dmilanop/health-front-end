@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/views.css";
-import Cards from "../component/Cards";
+import Cards from "../component/Cards.jsx";
 
 const Home = () => {
 	return (
