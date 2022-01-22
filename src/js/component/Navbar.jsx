@@ -13,7 +13,7 @@ const Navbar = () => {
 					<div className="modal-singin-singup d-flex"> 
 
 							<div className="singin">{/*boton de singup*/}
-								<button type="button" className="btn btn-outline-light but1" data-bs-toggle="modal" data-bs-target="#singupModal">Singup</button>
+								<button type="button" className="btn btn-outline-light but1" data-bs-toggle="modal" data-bs-target="#singupModal">Sing up</button>
 
 								<div className="modal fade" id="singupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 									<div className="modal-dialog">
@@ -73,7 +73,7 @@ const Navbar = () => {
 							</div>
 
 							<div className="singup"> {/*boton de singin*/}
-								<button type="button" className="btn btn-outline-light but2 ms-5" data-bs-toggle="modal" data-bs-target="#singinModal">Singin</button>
+								<button type="button" className="btn btn-outline-light but2 ms-5" data-bs-toggle="modal" data-bs-target="#singinModal">Sing in</button>
 
 								<div className="modal fade" id="singinModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 									<div className="modal-dialog">
