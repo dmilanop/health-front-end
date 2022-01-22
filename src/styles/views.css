@@ -7,5 +7,12 @@ body{
 }
 
 .title-description, .description{
+    color:rgb(19, 54, 19);
+    font-family: 'Nunito', sans-serif;
+}
+
+.flor{
+    text-align: center;
+    color: rgb(13, 46, 13);
     font-family: 'Nunito', sans-serif;
 }

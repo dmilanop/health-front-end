@@ -1,17 +1,16 @@
 .fas{
-    color: rgb(13, 128, 13);
+    color: rgb(19, 158, 19);
 }
 
 .app-name{
     font-family: 'Nunito', sans-serif;
+    color:white;
 }
 
-.but1, .but2, .title-modal1, .go1, .title-modal2, .go2{
+.but1, .but2, .title-modal1, .go1, .title-modal2, .go2, .form-label, .form-text, .card-text{
     font-family: 'Nunito', sans-serif;
 }
 
-.flor{
-    text-align: center;
-    color: green;
-    font-family: 'Nunito', sans-serif;
+.navbar{
+    background-color: rgb(7, 44, 7);
 }

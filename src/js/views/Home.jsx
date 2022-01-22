@@ -22,16 +22,13 @@ const Home = () => {
 						allergy or illness that requires certain dietary restrictions .`
 					}
 				</h5>
-						
-				{/* <div className="col-12">
-					<img src="https://d1whtlypfis84e.cloudfront.net/guides/wp-content/uploads/2019/08/05070155/healthy-food-1024x768.jpeg" alt="..."/>
-				</div> */}
+				<br/>
 				<Cards/>
 			</div>
-
+			<br/>
 			<div className="row">
 				<div className="border-top border-success flor">
-					<p>Made by Diego and Arausy</p>
+					<p>Made by Diego and Arausy from 4geeks academy</p>
 				</div>
 			</div>
 		</>
