@@ -1,5 +1,9 @@
-body, .container{
+body{
     background-color: white;
+}
+
+.container{
+    background-color:white;
 }
 
 .title-description, .description{
