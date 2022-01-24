@@ -9,7 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			signUp: async user =>{
 				const store = getStore();
 				try{
-					let response = await fetch(`${URL_BASE}/logup`, {
+					let response = await fetch(`${store.URL_BASE}/logup`, {
 						method: 'POST',
 						headers: {
 							"Conten-Type": "aplication/json"
