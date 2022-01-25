@@ -12,7 +12,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					let response = await fetch(`${store.URL_BASE}/logup`, {
 						method: 'POST',
 						headers: {
-							"Conten-Type": "aplication/json"
+							"Content-Type": "application/json"
 						},
 						body: JSON.stringify(user)
 					});
@@ -20,26 +20,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}catch (error){}
 			},
 
-			// Signin: async (user, info) =>{
-			// 	const store = getStore();
-			// 	try{
-			// 		let response = await fetch(`${URL_BASE}/login`, {
-			// 			method: 'POST',
-			// 			headers: {
-			// 				"Content-Type": "aplication-json"
-			// 			},
-			// 			body: JSON.stringify(user)
-			// 		});
-			// 		if(response.ok){
-			// 			let data = await response.json();
-			// 			setStore({ ...store, token: data.token});
-			// 			localStorage.setItem("token", data.token)
-			// 			return response;
-			// 		}else{
-			// 			return response;
-			// 		}
-			// 	}catch (error){}
-			// }
+			signIn: async user =>{
+				const store = getStore();
+				try{
+					let response = await fetch(`${URL_BASE}/login`, {
+						method: 'POST',
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify(user)
+					});
+					if(response.ok){
+						let data = await response.json();
+						setStore({ ...store, token: data.token});
+						localStorage.setItem("token", data.token)
+						return response;
+					}else{
+						return response;
+					}
+				}catch (error){}
+			}
 		}
 	};
 };

@@ -16,9 +16,17 @@ const Signup = () =>{
 
     const sendInfo = async () =>{
         let newUser = {email: email, password: password, name: name, last_name: lastName, gender: gender, date_of_birth: date, ailments: ailmentAnswer, exercises: exerciseAnswer};
-        let response = await actions.signup(newUser);
+        let response = await actions.signUp(newUser);
 
         if (response.ok){
+            setEmail("");
+            setPassword("");
+            setName("");
+            setLastName("");
+            setGender("");
+            setDate("");
+            setAilmentAnswer("");
+            setExerciseAnswer("");
             history.push('/login')
         }else{
             alert("oh oh, something went wrong, please try again")
@@ -27,7 +35,7 @@ const Signup = () =>{
 
     return(
         <>
-            <button type="button" className="btn btn-outline-light but1" data-bs-toggle="modal" data-bs-target="#signupModal">Sing up</button>
+            <button type="button" className="btn btn-outline-light but1" data-bs-toggle="modal" data-bs-target="#signupModal">Sign up</button>
 
             <div className="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
@@ -40,7 +48,7 @@ const Signup = () =>{
 
                             <form>
                                 <div className="mb-3">
-                                    <label for="exampleInputEmail1" className="form-label">Email address</label>
+                                    <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                                     <input 
                                         type="text" 
                                         className="form-control" 
@@ -52,7 +60,7 @@ const Signup = () =>{
                                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                                 </div>
                                 <div className="mb-3">
-                                    <label for="passwordInputText1" className="form-label">Password</label>
+                                    <label htmlFor="passwordInputText1" className="form-label">Password</label>
                                     <input 
                                         type="text" 
                                         className="form-control" 
@@ -63,7 +71,7 @@ const Signup = () =>{
                                     />
                                 </div>
                                 <div className="mb-3">
-                                    <label for="exampleInputName1" className="form-label">Name</label>
+                                    <label htmlFor="exampleInputName1" className="form-label">Name</label>
                                     <input 
                                         type="text" 
                                         className="form-control" 
@@ -74,7 +82,7 @@ const Signup = () =>{
                                     />
                                 </div>
                                 <div className="mb-3">
-                                    <label for="exampleInputLasame1" className="form-label">Lastname</label>
+                                    <label htmlFor="exampleInputLasame1" className="form-label">Lastname</label>
                                     <input 
                                         type="text" 
                                         className="form-control" 
@@ -85,7 +93,7 @@ const Signup = () =>{
                                     />
                                 </div>
                                 <div className="mb-3">
-                                    <label for="exampleInputName1" className="form-label">Gender</label>
+                                    <label htmlFor="exampleInputName1" className="form-label">Gender</label>
                                     <input 
                                         type="text" 
                                         className="form-control"
@@ -97,7 +105,7 @@ const Signup = () =>{
                                     <div id="genderHelp" className="form-text">Response female/male</div>
                                 </div>
                                 <div className="mb-3">
-                                    <label for="exampleInputDate1" className="form-label">Date of birth</label>
+                                    <label htmlFor="exampleInputDate1" className="form-label">Date of birth</label>
                                     <input 
                                         type="date" 
                                         className="form-control" 
@@ -109,7 +117,7 @@ const Signup = () =>{
                                     <div id="dateHelp" className="form-text">Response day/month/year</div>
                                 </div>
                                 <div className="mb-3">
-                                    <label for="exampleInputQuestion1" className="form-label">¿Do you suffer from any ailment?</label>
+                                    <label htmlFor="exampleInputQuestion1" className="form-label">¿Do you suffer from any ailment?</label>
                                     <input 
                                         type="text" 
                                         className="form-control" 
@@ -121,7 +129,7 @@ const Signup = () =>{
                                     <div id="questionHelp" className="form-text">Response yes/no</div>
                                 </div>
                                 <div className="mb-3">
-                                    <label for="exampleInputEx1" className="form-label">¿Do you have some type of physical activity?</label>
+                                    <label htmlFor="exampleInputEx1" className="form-label">¿Do you have some type of physical activity?</label>
                                     <input 
                                         type="text" 
                                         className="form-control" 
