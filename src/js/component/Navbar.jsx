@@ -1,5 +1,5 @@
 import React from "react";
-import Signin from "./signin.jsx";
+import Signin from "./Signin.jsx";
 import Signup from "./Signup.jsx";
 
 const Navbar = () => {

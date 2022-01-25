@@ -23,7 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			signIn: async user =>{
 				const store = getStore();
 				try{
-					let response = await fetch(`${URL_BASE}/login`, {
+					let response = await fetch(`${store.URL_BASE}/login`, {
 						method: 'POST',
 						headers: {
 							"Content-Type": "application/json"

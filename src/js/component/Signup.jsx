@@ -94,14 +94,16 @@ const Signup = () =>{
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputName1" className="form-label">Gender</label>
-                                    <input 
-                                        type="text" 
-                                        className="form-control"
-                                        id="exampleInputGender1" 
-                                        aria-describedby="GenderHelp"
+                                    <select 
+                                        class="form-select" 
+                                        aria-label=".form-select-sm example"
                                         value={gender}
                                         onChange={e =>{setGender(e.target.value);}}
-                                    />
+                                    >
+                                        <option selected>Select your answer</option>
+                                        <option value="female">female</option>
+                                        <option value="male">male</option>
+                                    </select>
                                     <div id="genderHelp" className="form-text">Response female/male</div>
                                 </div>
                                 <div className="mb-3">
@@ -118,25 +120,30 @@ const Signup = () =>{
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputQuestion1" className="form-label">¿Do you suffer from any ailment?</label>
-                                    <input 
-                                        type="text" 
-                                        className="form-control" 
-                                        id="exampleInputquestion1" 
-                                        aria-describedby="QuestionHelp"
+                                    <select 
+                                        class="form-select" 
+                                        aria-label=".form-select-sm example"
                                         value={ailmentAnswer}
                                         onChange={e =>{setAilmentAnswer(e.target.value);}}
-                                    />
+                                    >
+                                        <option selected>Select your answer</option>
+                                        <option value="yes">yes</option>
+                                        <option value="no">no</option>
+                                    </select>
                                     <div id="questionHelp" className="form-text">Response yes/no</div>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputEx1" className="form-label">¿Do you have some type of physical activity?</label>
-                                    <input 
-                                        type="text" 
-                                        className="form-control" 
-                                        id="exampleInputEx1"
+                                    <select 
+                                        class="form-select" 
+                                        aria-label=".form-select-sm example"
                                         value={exerciseAnswer}
                                         onChange={e =>{setExerciseAnswer(e.target.value);}}
-                                    />
+                                    >
+                                        <option selected>Select your answer</option>
+                                        <option value="yes">yes</option>
+                                        <option value="no">no</option>
+                                    </select>
                                     <div id="exHelp" className="form-text">Response yes/no</div>
                                 </div>
                             </form>
