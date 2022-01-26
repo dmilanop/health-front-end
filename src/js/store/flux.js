@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			URL_BASE: "https://3000-dmilanop-healthbackend-cy3fkpaws9j.ws-us28.gitpod.io",
+			URL_BASE: "https://3000-dmilanop-healthbackend-cy3fkpaws9j.ws-us29.gitpod.io",
 			user: [],
 			token: localStorage.getItem("token") || undefined
 		},

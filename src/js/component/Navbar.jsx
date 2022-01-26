@@ -1,18 +1,20 @@
-import React from "react";
+import React,{useContext} from "react";
 import Signin from "./Signin.jsx";
 import Signup from "./Signup.jsx";
+import { Context } from "../store/appContext.js";
 
 const Navbar = () => {
+	const{store, actions} = useContext(Context);
 	return (
 		<> 
-			<nav className="navbar">
-				<div className="container-fluid">
-					<div className="navbar-brand d-flex">
+			{store.token == undefined ? (
+				<nav className="navbar">
+					<div className="container-fluid">
+						<div className="navbar-brand d-flex">
 							<i className="fas fa-seedling"></i>
 							<p className="app-name">HEALTH</p>
-					</div>
-
-					<div className="modal-signin-singup d-flex"> 
+						</div>
+						<div className="modal-signin-singup d-flex"> 
 
 							<div className="signin">{/*boton de signup*/}
 								<Signup/>
@@ -23,8 +25,18 @@ const Navbar = () => {
 							</div>
 
 						</div>
-				</div>
-			</nav>
+					</div>
+				</nav>		
+			) : (
+				<nav className="navbar">
+					<div className="container-fluid">
+						<div className="navbar-brand d-flex">
+							<i className="fas fa-seedling"></i>
+							<p className="app-name">HEALTH</p>
+						</div>
+					</div>
+				</nav>		
+			)}
 		</>
 	);
 };

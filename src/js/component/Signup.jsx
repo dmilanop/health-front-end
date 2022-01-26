@@ -103,7 +103,7 @@ const Signup = () =>{
                                         <option selected>Select your answer</option>
                                         <option value="female">female</option>
                                         <option value="male">male</option>
-                                    </select>
+                                    </select> 
                                     <div id="genderHelp" className="form-text">Response female/male</div>
                                 </div>
                                 <div className="mb-3">
