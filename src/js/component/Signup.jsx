@@ -27,7 +27,7 @@ const Signup = () =>{
             setDate("");
             setAilmentAnswer("");
             setExerciseAnswer("");
-            history.push('/login')
+            history.push('/')
         }else{
             alert("oh oh, something went wrong, please try again")
         }
@@ -153,6 +153,7 @@ const Signup = () =>{
                         <button 
                             type="button" 
                             className="btn btn-outline-success go1" 
+                            data-bs-dismiss="modal"
                             onClick={sendInfo}
                         >
                             Send

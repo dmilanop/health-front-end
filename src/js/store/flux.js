@@ -39,7 +39,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response;
 					}
 				}catch (error){}
-			}
+			},
+
+			// medical_history: async (user) =>{
+			// 	const store = getStore();
+			// 	try {
+			// 		let response = await fetch(`${store.URL_BASE}/medical_history`,{
+			// 			method:'POST',
+			// 			headers:{
+			// 				"Content-Type": "application/json"
+			// 			},
+			// 			body: JSON.stringify(user)
+			// 		});
+			// 		return response;
+			// 	} catch (error) {}
+			// }
 		}
 	};
 };
