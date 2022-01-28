@@ -4,29 +4,50 @@ import { useHistory } from "react-router-dom";
 
 const Signup = () =>{
     const{store, actions} = useContext(Context);
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [name, setName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [gender, setGender] = useState("");
-    const [date, setDate] = useState("")
-    const [ailmentAnswer, setAilmentAnswer] = useState("");
-    const [exerciseAnswer, setExerciseAnswer] = useState("");
+    const[user, setUser] = useState({
+        email: "",
+        password: "",
+        name: "",
+        lastName: "",
+        gender: "",
+        date: "",
+        ailments: "",
+        exercises: ""
+    })
+//     const[medicalHistory, setMedicalHistory] = useState({
+//         height: "",
+//         weight: "",
+//         diabetes: "",
+//         uricAcid: "",
+//         gastricUlcers: "",
+//         gastritis: "",
+//         cholesterol: "",
+//         triglycerides: "",
+//         dairyIntolerance: "",
+//         celiac: "",
+//         obesity: "",
+//         kidneyStones: "",
+//         inflametionOfTheColon: "",
+//         heartProblems: ""
+// })
+
     let history = useHistory();
 
     const sendInfo = async () =>{
-        let newUser = {email: email, password: password, name: name, last_name: lastName, gender: gender, date_of_birth: date, ailments: ailmentAnswer, exercises: exerciseAnswer};
+        let newUser = {email: user.email, password: user.password, name: user.name, last_name: user.lastName, gender: user.gender, date_of_birth: user.date, ailments: user.ailments, exercises: user.exercises};
         let response = await actions.signUp(newUser);
 
         if (response.ok){
-            setEmail("");
-            setPassword("");
-            setName("");
-            setLastName("");
-            setGender("");
-            setDate("");
-            setAilmentAnswer("");
-            setExerciseAnswer("");
+            setUser({
+                email: "",
+                password: "",
+                name: "",
+                lastName: "",
+                gender: "",
+                date: "",
+                ailments: "",
+                exercises: ""
+            })
             history.push('/')
         }else{
             alert("oh oh, something went wrong, please try again")
@@ -37,7 +58,7 @@ const Signup = () =>{
         <>
             <button type="button" className="btn btn-outline-light but1" data-bs-toggle="modal" data-bs-target="#signupModal">Sign up</button>
 
-            <div className="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="signupModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -54,8 +75,9 @@ const Signup = () =>{
                                         className="form-control" 
                                         id="exampleInputEmail1" 
                                         aria-describedby="emailHelp"
-                                        value={email}
-                                        onChange={e =>{setEmail(e.target.value);}}
+                                        name="email"
+                                        value={user.email}
+                                        onChange={e =>{setUser({...user, [e.target.name]:e.target.value})}}
                                     />
                                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                                 </div>
@@ -65,9 +87,10 @@ const Signup = () =>{
                                         type="text" 
                                         className="form-control" 
                                         id="exampleInputText1" 
-                                        aria-describedby="TextdHelp" 
-                                        value={password}
-                                        onChange={e =>{setPassword(e.target.value);}}
+                                        aria-describedby="TextdHelp"
+                                        name="password" 
+                                        value={user.password}
+                                        onChange={e =>{setUser({...user, [e.target.name]:e.target.value});}}
                                     />
                                 </div>
                                 <div className="mb-3">
@@ -77,8 +100,9 @@ const Signup = () =>{
                                         className="form-control" 
                                         id="exampleInputName1" 
                                         aria-describedby="nameHelp"
-                                        value={name}
-                                        onChange={e =>{setName(e.target.value);}}
+                                        name="name"
+                                        value={user.name}
+                                        onChange={e =>{setUser({...user, [e.target.name]:e.target.value});}}
                                     />
                                 </div>
                                 <div className="mb-3">
@@ -88,19 +112,21 @@ const Signup = () =>{
                                         className="form-control" 
                                         id="exampleInputLastname1" 
                                         aria-describedby="lastnameHelp"
-                                        value={lastName}
-                                        onChange={e =>{setLastName(e.target.value);}}
+                                        name="lastName"
+                                        value={user.lastName}
+                                        onChange={e =>{setUser({...user, [e.target.name]:e.target.value});}}
                                     />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputName1" className="form-label">Gender</label>
                                     <select 
-                                        class="form-select" 
+                                        className="form-select" 
                                         aria-label=".form-select-sm example"
-                                        value={gender}
-                                        onChange={e =>{setGender(e.target.value);}}
+                                        name="gender"
+                                        value={user.gender}
+                                        onChange={e =>{setUser({...user, [e.target.name]:e.target.value});}}
                                     >
-                                        <option selected>Select your answer</option>
+                                        <option value="">Select your answer</option>
                                         <option value="female">female</option>
                                         <option value="male">male</option>
                                     </select> 
@@ -113,20 +139,21 @@ const Signup = () =>{
                                         className="form-control" 
                                         id="exampleInputdate1" 
                                         aria-describedby="DateHelp"
-                                        value={date}
-                                        onChange={e =>{setDate(e.target.value);}}
+                                        name="date"
+                                        value={user.date}
+                                        onChange={e =>{setUser({...user, [e.target.name]:e.target.value});}}
                                     />
                                     <div id="dateHelp" className="form-text">Response day/month/year</div>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputQuestion1" className="form-label">¿Do you suffer from any ailment?</label>
                                     <select 
-                                        class="form-select" 
+                                        className="form-select" 
                                         aria-label=".form-select-sm example"
-                                        value={ailmentAnswer}
-                                        onChange={e =>{setAilmentAnswer(e.target.value);}}
+                                        name="ailments"
+                                        onChange={e =>{setUser({...user, [e.target.name]:e.target.value});}}
                                     >
-                                        <option selected>Select your answer</option>
+                                        <option value="">Select your answer</option>
                                         <option value="yes">yes</option>
                                         <option value="no">no</option>
                                     </select>
@@ -135,12 +162,12 @@ const Signup = () =>{
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputEx1" className="form-label">¿Do you have some type of physical activity?</label>
                                     <select 
-                                        class="form-select" 
+                                        className="form-select" 
                                         aria-label=".form-select-sm example"
-                                        value={exerciseAnswer}
-                                        onChange={e =>{setExerciseAnswer(e.target.value);}}
+                                        name="exercises"
+                                        onChange={e =>{setUser({...user, [e.target.name]:e.target.value});}}
                                     >
-                                        <option selected>Select your answer</option>
+                                        <option value="">Select your answer</option>
                                         <option value="yes">yes</option>
                                         <option value="no">no</option>
                                     </select>

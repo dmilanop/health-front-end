@@ -25,7 +25,7 @@ const Signin = () =>{
         <>
             <button type="button" className="btn btn-outline-light but2 ms-5" data-bs-toggle="modal" data-bs-target="#signinModal">Sign in</button>
 
-            <div className="modal fade" id="signinModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="signinModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -46,7 +46,7 @@ const Signin = () =>{
                                 <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                             </div>
                             <div className="mb-3">
-                                <label hatmlFor="exampleInputPassword1" className="form-label">Password</label>
+                                <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                                 <input 
                                     type="text" 
                                     className="form-control" 

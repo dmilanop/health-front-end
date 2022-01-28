@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			URL_BASE: "https://3000-dmilanop-healthbackend-cy3fkpaws9j.ws-us29.gitpod.io",
+			URL_BASE: "https://3000-dmilanop-healthbackend-rr7x6kigclg.ws-us29.gitpod.io",
 			user: [],
 			token: localStorage.getItem("token") || undefined
 		},
@@ -41,7 +41,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}catch (error){}
 			},
 
-			// medical_history: async (user) =>{
+			// medicalHistory: async (user) =>{
 			// 	const store = getStore();
 			// 	try {
 			// 		let response = await fetch(`${store.URL_BASE}/medical_history`,{
