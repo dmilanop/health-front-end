@@ -1,6 +1,7 @@
 import React, {useState, useContext} from "react";
 import { Context } from "../store/appContext";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const Signup = () =>{
     const{store, actions} = useContext(Context);
@@ -11,25 +12,8 @@ const Signup = () =>{
         lastName: "",
         gender: "",
         date: "",
-        ailments: "",
         exercises: ""
     })
-//     const[medicalHistory, setMedicalHistory] = useState({
-//         height: "",
-//         weight: "",
-//         diabetes: "",
-//         uricAcid: "",
-//         gastricUlcers: "",
-//         gastritis: "",
-//         cholesterol: "",
-//         triglycerides: "",
-//         dairyIntolerance: "",
-//         celiac: "",
-//         obesity: "",
-//         kidneyStones: "",
-//         inflametionOfTheColon: "",
-//         heartProblems: ""
-// })
 
     let history = useHistory();
 
@@ -45,10 +29,9 @@ const Signup = () =>{
                 lastName: "",
                 gender: "",
                 date: "",
-                ailments: "",
                 exercises: ""
             })
-            history.push('/')
+            history.push('/medical_history')
         }else{
             alert("oh oh, something went wrong, please try again")
         }
@@ -84,7 +67,7 @@ const Signup = () =>{
                                 <div className="mb-3">
                                     <label htmlFor="passwordInputText1" className="form-label">Password</label>
                                     <input 
-                                        type="text" 
+                                        type="password" 
                                         className="form-control" 
                                         id="exampleInputText1" 
                                         aria-describedby="TextdHelp"
@@ -146,20 +129,6 @@ const Signup = () =>{
                                     <div id="dateHelp" className="form-text">Response day/month/year</div>
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="exampleInputQuestion1" className="form-label">¿Do you suffer from any ailment?</label>
-                                    <select 
-                                        className="form-select" 
-                                        aria-label=".form-select-sm example"
-                                        name="ailments"
-                                        onChange={e =>{setUser({...user, [e.target.name]:e.target.value});}}
-                                    >
-                                        <option value="">Select your answer</option>
-                                        <option value="yes">yes</option>
-                                        <option value="no">no</option>
-                                    </select>
-                                    <div id="questionHelp" className="form-text">Response yes/no</div>
-                                </div>
-                                <div className="mb-3">
                                     <label htmlFor="exampleInputEx1" className="form-label">¿Do you have some type of physical activity?</label>
                                     <select 
                                         className="form-select" 
@@ -177,6 +146,7 @@ const Signup = () =>{
                             
                         </div>
                     <div className="modal-footer">
+                        <Link to="/medical_history">
                         <button 
                             type="button" 
                             className="btn btn-outline-success go1" 
@@ -185,6 +155,7 @@ const Signup = () =>{
                         >
                             Send
                         </button>
+                        </Link>
                     </div>
                     </div>
                 </div>

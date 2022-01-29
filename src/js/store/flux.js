@@ -41,19 +41,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}catch (error){}
 			},
 
-			// medicalHistory: async (user) =>{
-			// 	const store = getStore();
-			// 	try {
-			// 		let response = await fetch(`${store.URL_BASE}/medical_history`,{
-			// 			method:'POST',
-			// 			headers:{
-			// 				"Content-Type": "application/json"
-			// 			},
-			// 			body: JSON.stringify(user)
-			// 		});
-			// 		return response;
-			// 	} catch (error) {}
-			// }
+			medicalHistory: async (user) =>{
+				const store = getStore();
+				try {
+					let response = await fetch(`${store.URL_BASE}/medical_history`,{
+						method:'POST',
+						headers:{
+							"Content-Type": "application/json",
+							Authorization:`Bearer ${store.token}`
+						},
+						body: JSON.stringify(user)
+					});
+					return response;
+				} catch (error) {}
+			}
 		}
 	};
 };

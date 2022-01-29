@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import Home from "./views/Home.jsx";
+import Medical_History from "./views/Medical_History.jsx";
 import injectContext from "./store/appContext";
 
 import Navbar from "./component/Navbar.jsx";
@@ -22,6 +23,9 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
+						</Route>
+						<Route exact path="/medical_history">
+							<Medical_History />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

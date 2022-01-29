@@ -16,3 +16,38 @@ body{
     color: rgb(13, 46, 13);
     font-family: 'Nunito', sans-serif;
 }
+
+.form{
+    /* border: 5px solid black; */
+    margin-left: 40rem;
+    margin-right: 40rem;
+}
+
+.h1{
+    font-family: 'Nunito', sans-serif;
+    margin-left: 10rem;
+    margin-top: 1rem;
+}
+
+.label{
+    font-size: 1rem;
+    margin-right: 1rem;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.text{
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 1rem;
+    padding-right: 500px;
+}
+
+.select{
+    font-size: 20px;
+    /* margin-right: 10rem; */
+}
+
+.send{
+    font-size: 20px;
+}
