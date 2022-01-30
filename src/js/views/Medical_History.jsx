@@ -6,8 +6,8 @@ import { Context } from "../store/appContext"
 const Medical_History = () => {
     const{store, actions} = useContext(Context)
     const[medicalHistory, setMedicalHistory] = useState({
-        height: "",
-        weight: "",
+        height: parseFloat(""),
+        weight: parseInt(""),
         diabetes: "",
         uricAcid: "",
         gastricUlcers: "",
@@ -18,9 +18,10 @@ const Medical_History = () => {
         celiac: "",
         obesity: "",
         kidneyStones: "",
-        inflametionOfTheColon: "",
+        inflammationOfTheColon: "",
         heartProblems: ""
 })
+    console.log(typeof medicalHistory.height)
     let history = useHistory()
 
     const sendMedicalHistory = async () => {
@@ -37,15 +38,15 @@ const Medical_History = () => {
             celiac: medicalHistory.celiac,
             obesity: medicalHistory.obesity,
             kidney_stones: medicalHistory.kidneyStones,
-            inflametion_of_the_colon: medicalHistory.inflametionOfTheColon,
+            inflammation_of_the_colon: medicalHistory.inflametionOfTheColon,
             heart_problems: medicalHistory.heartProblems
         }
         let response = await actions.medicalHistory(newHistory)
 
         if (response.ok){
             setMedicalHistory({
-                height: "",
-                weight: "",
+                height: parseFloat(""),
+                weight: parseInt(""),
                 diabetes: "",
                 uricAcid: "",
                 gastricUlcers: "",
@@ -56,7 +57,7 @@ const Medical_History = () => {
                 celiac: "",
                 obesity: "",
                 kidneyStones: "",
-                inflametionOfTheColon: "",
+                inflammationOfTheColon: "",
                 heartProblems: ""
             })
             history.push('/profile')
@@ -239,11 +240,11 @@ const Medical_History = () => {
                 <div id="exHelp" className="form-text text">Response yes/no</div>
             </div>
             <div className="mb-3">
-                <label htmlFor="exampleInputEx1" className="form-label label">Inflametion of the Colon</label>
+                <label htmlFor="exampleInputEx1" className="form-label label">Inflammation of the Colon</label>
                 <select 
                 className="form-select select" 
                 aria-label=".form-select-sm example"
-                name="inflametionOfTheColon"
+                name="inflammationOfTheColon"
                 onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
                 >
                     <option value="">Select your answer</option>

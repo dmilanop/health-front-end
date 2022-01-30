@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			URL_BASE: "https://3000-dmilanop-healthbackend-rr7x6kigclg.ws-us29.gitpod.io",
+			URL_BASE: "https://3000-dmilanop-healthbackend-0f3lasyq11f.ws-us29.gitpod.io",
 			user: [],
 			token: localStorage.getItem("token") || undefined
 		},
@@ -16,7 +16,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 						},
 						body: JSON.stringify(user)
 					});
-					return response;
+					if (response.ok){
+						let data = await response.json();
+						setStore({...store, token: data.token});
+						localStorage.setItem("token", data.token);
+						return response;
+					}
+					else{
+						return response
+					}
 				}catch (error){}
 			},
 
@@ -53,7 +61,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						body: JSON.stringify(user)
 					});
 					return response;
-				} catch (error) {}
+				} catch (error) {
+					console.log(error)
+				}
 			}
 		}
 	};

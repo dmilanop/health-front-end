@@ -146,7 +146,6 @@ const Signup = () =>{
                             
                         </div>
                     <div className="modal-footer">
-                        <Link to="/medical_history">
                         <button 
                             type="button" 
                             className="btn btn-outline-success go1" 
@@ -155,7 +154,6 @@ const Signup = () =>{
                         >
                             Send
                         </button>
-                        </Link>
                     </div>
                     </div>
                 </div>
