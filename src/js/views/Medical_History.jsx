@@ -38,7 +38,7 @@ const Medical_History = () => {
             celiac: medicalHistory.celiac,
             obesity: medicalHistory.obesity,
             kidney_stones: medicalHistory.kidneyStones,
-            inflammation_of_the_colon: medicalHistory.inflametionOfTheColon,
+            inflammation_of_the_colon: medicalHistory.inflammationOfTheColon,
             heart_problems: medicalHistory.heartProblems
         }
         let response = await actions.medicalHistory(newHistory)
@@ -119,7 +119,7 @@ const Medical_History = () => {
                 className="form-select select" 
                 aria-label=".form-select-sm example"
                 name="uricAcid"
-                onChange={e =>{setMedicalHistory({...user, [e.target.name]:e.target.value});}}
+                onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
                 >
                     <option value="">Select your answer</option>
                     <option value="yes">Yes</option>
@@ -258,7 +258,7 @@ const Medical_History = () => {
                 <select 
                 className="form-select select" 
                 aria-label=".form-select-sm example"
-                name="exercises"
+                name="heartProblems"
                 onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
                 >
                     <option value="">Select your answer</option>
