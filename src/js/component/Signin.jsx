@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import { useHistory } from "react-router-dom";
 
 const Signin = () =>{
-    const {store, actions} = useContext(Context)
+    const { actions } = useContext(Context)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     let history = useHistory();
@@ -15,7 +15,7 @@ const Signin = () =>{
         if (response.ok){
             setEmail("");
             setPassword("");
-            history.push("/login")
+            history.push("/profile")
         }else{
             alert("oh oh, bad credentials")
         }

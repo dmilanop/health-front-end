@@ -1,6 +1,8 @@
 import React,{useContext} from "react";
 import Signin from "./Signin.jsx";
 import Signup from "./Signup.jsx";
+import Signout from "./Signout.jsx";
+import DeleteAccount from "./DeleteAccount.jsx";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 
@@ -35,9 +37,18 @@ const Navbar = () => {
 					<div className="container-fluid">
 						<div className="navbar-brand d-flex">
 							<i className="fas fa-seedling"></i>
-							<Link to="/">
 							<p className="app-name">HEALTH</p>
-							</Link>
+						</div>
+						<div className="d-flex">
+
+							<div>
+								<DeleteAccount /> {/*boton de delete account*/}
+							</div>
+							
+							<div>
+								<Signout /> {/*botón de signout*/}
+							</div>
+
 						</div>
 					</div>
 				</nav>		

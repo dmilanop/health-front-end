@@ -21,7 +21,6 @@ const Medical_History = () => {
         inflammationOfTheColon: "",
         heartProblems: ""
 })
-    console.log(typeof medicalHistory.height)
     let history = useHistory()
 
     const sendMedicalHistory = async () => {

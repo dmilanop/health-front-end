@@ -4,9 +4,11 @@ import ScrollToTop from "./component/scrollToTop";
 
 import Home from "./views/Home.jsx";
 import Medical_History from "./views/Medical_History.jsx";
+import Profile from "./views/Profile.jsx";
 import injectContext from "./store/appContext";
 
 import Navbar from "./component/Navbar.jsx";
+
 
 
 //create your first component
@@ -26,6 +28,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/medical_history">
 							<Medical_History />
+						</Route>
+						<Route exact path="/profile">
+							<Profile />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
