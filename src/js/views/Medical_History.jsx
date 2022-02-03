@@ -59,7 +59,7 @@ const Medical_History = () => {
                 inflammationOfTheColon: "",
                 heartProblems: ""
             })
-            history.push('/profile')
+            history.push('/')
         }
         else{
             alert("oh oh, something went wrong, please try again")

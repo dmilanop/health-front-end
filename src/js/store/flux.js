@@ -3,8 +3,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			URL_BASE: "https://3000-dmilanop-healthbackend-ughey406xti.ws-us30.gitpod.io",
-			user: [],
+			user: "",
 			recipes:[],
+			medical_history:{},
 			token: localStorage.getItem("token") || undefined
 		},
 		actions: {
@@ -42,7 +43,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 					if(response.ok){
 						let data = await response.json();
-						setStore({ ...store, token: data.token});
+						setStore({ ...store, token: data.token, user: data.name});
 						localStorage.setItem("token", data.token)
 						return response;
 					}else{
@@ -75,7 +76,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			resetMedicalHistory: async () => {
+			getMedicalHistory: async () => {
+				const store = getStore();
+				try {
+					let response = await fetch(`${store.URL_BASE}/id_medical_history`,{
+						method:'GET',
+						headers:{
+							"Content-Type": "application/json",
+							Authorization:`Bearer ${store.token}`
+						},
+						body: JSON.stringify()
+					})
+					let result = await response.json()
+					setStore({...store, medical_history: result})
+				} catch (error) {}
+			},
+
+			resetMedicalHistory: async (user) => {
 				const store = getStore();
 				try {
 					let response = await fetch(`${store.URL_BASE}/medical_history`,{
@@ -84,7 +101,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							"Content-Type": "application/json",
 							Authorization:`Bearer ${store.token}`
 						},
-						body: JSON.stringify()
+						body: JSON.stringify(user)
 					});
 					return response
 				} catch (error) {

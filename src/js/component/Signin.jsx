@@ -15,7 +15,8 @@ const Signin = () =>{
         if (response.ok){
             setEmail("");
             setPassword("");
-            history.push("/profile")
+            actions.getMedicalHistory();
+            history.push("/")
         }else{
             alert("oh oh, bad credentials")
         }
