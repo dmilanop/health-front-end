@@ -1,27 +1,25 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext"
 
 const Profile = () => {
     const{ store,actions } = useContext(Context)
 
     const[medicalHistory, setMedicalHistory] = useState({
-        height: parseFloat(""),
-        weight: parseInt(""),
-        diabetes: "",
-        uricAcid: "",
-        gastricUlcers: "",
-        gastritis: "",
-        cholesterol: "",
-        triglycerides: "",
-        dairyIntolerance: "",
-        celiac: "",
-        obesity: "",
-        kidneyStones: "",
-        inflammationOfTheColon: "",
-        heartProblems: ""
+        height: parseFloat(store.medical_history.height),
+        weight: parseInt(store.medical_history.weight),
+        diabetes: store.medical_history.diabetes,
+        uricAcid: store.medical_history.uric_acid,
+        gastricUlcers: store.medical_history.gastric_ulcers,
+        gastritis: store.medical_history.gastritis,
+        cholesterol: store.medical_history.cholesterol,
+        triglycerides: store.medical_history.triglycerides,
+        dairyIntolerance: store.medical_history.dairy_intolerance,
+        celiac: store.medical_history.celiac,
+        obesity: store.medical_history.obesity,
+        kidneyStones: store.medical_history.kidney_stones,
+        inflammationOfTheColon: store.medical_history.inflammation_of_the_colon,
+        heartProblems: store.medical_history.heart_problems
     })
-    let history = useHistory()
     const sendMedicalHistory = async () => {
         let newHistory = {
             height: medicalHistory.height, 
@@ -41,23 +39,7 @@ const Profile = () => {
         }
         let response = await actions.resetMedicalHistory(newHistory)
         if (response.ok){
-            setMedicalHistory({
-                height: parseFloat(""),
-                weight: parseInt(""),
-                diabetes: "",
-                uricAcid: "",
-                gastricUlcers: "",
-                gastritis: "",
-                cholesterol: "",
-                triglycerides: "",
-                dairyIntolerance: "",
-                celiac: "",
-                obesity: "",
-                kidneyStones: "",
-                inflammationOfTheColon: "",
-                heartProblems: ""
-            })
-            history.push('/profile')
+            actions.getMedicalHistory()
         }
         else{
             alert("oh oh, something went wrong, please try again")
@@ -73,9 +55,11 @@ const Profile = () => {
                 <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
                 <a href="#" className="btn btn-primary">Go somewhere</a>
             </div>
-            <button type="button" className="btn btn-outline-light but2 ms-5" data-bs-toggle="modal" data-bs-target="#signinModal">Sign in</button>
-
-            <div className="modal fade" id="signinModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        </div>
+        
+        <button type="button" className="btn but2 ms-5" data-bs-toggle="modal" data-bs-target="#signinModal">Sign in</button>    
+        
+        <div className="modal fade" id="signinModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -91,8 +75,8 @@ const Profile = () => {
                                 id="exampleInputHeight"                            
                                 aria-describedby="heightHelp"                           
                                 name="height"                           
-                                value={store.medical_history.height}                           
-                                onChange={e =>{setMedicalHistory({...store.medical_history, [e.target.name]:e.target.value})}}                                                      
+                                value={medicalHistory.height}                           
+                                onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value})}}                                                      
                                 />
                                 <div id="heightHelp" className="form-text text">Meters</div>                                                  
                             </div>
@@ -116,6 +100,7 @@ const Profile = () => {
                                 aria-label=".form-select-sm example"
                                 name="diabetes"
                                 onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
+                                value={medicalHistory.diabetes}
                                 >
                                     <option value="">Select your answer</option>
                                     <option value="yes">Yes</option>
@@ -129,6 +114,7 @@ const Profile = () => {
                                 className="form-select" 
                                 aria-label=".form-select-sm example"
                                 name="uricAcid"
+                                value={medicalHistory.uricAcid}
                                 onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
                                 >
                                     <option value="">Select your answer</option>
@@ -143,6 +129,7 @@ const Profile = () => {
                                 className="form-select" 
                                 aria-label=".form-select-sm example"
                                 name="gastricUlcers"
+                                value={medicalHistory.gastricUlcers}
                                 onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
                                 >
                                     <option value="">Select your answer</option>
@@ -157,6 +144,7 @@ const Profile = () => {
                                 className="form-select" 
                                 aria-label=".form-select-sm example"
                                 name="gastritis"
+                                value={medicalHistory.gastritis}
                                 onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
                                 >
                                     <option value="">Select your answer</option>
@@ -171,6 +159,7 @@ const Profile = () => {
                                 className="form-select" 
                                 aria-label=".form-select-sm example"
                                 name="cholesterol"
+                                value={medicalHistory.cholesterol}
                                 onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
                                 >
                                     <option value="">Select your answer</option>
@@ -185,6 +174,7 @@ const Profile = () => {
                                 className="form-select" 
                                 aria-label=".form-select-sm example"
                                 name="triglycerides"
+                                value={medicalHistory.triglycerides}
                                 onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
                                 >
                                     <option value="">Select your answer</option>
@@ -198,6 +188,7 @@ const Profile = () => {
                                 <select 
                                 className="form-select" 
                                 aria-label=".form-select-sm example"
+                                value={medicalHistory.dairyIntolerance}
                                 name="dairyIntolerance"
                                 onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
                                 >
@@ -212,6 +203,7 @@ const Profile = () => {
                                 <select 
                                 className="form-select" 
                                 aria-label=".form-select-sm example"
+                                value={medicalHistory.celiac}
                                 name="celiac"
                                 onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
                                 >
@@ -227,6 +219,7 @@ const Profile = () => {
                                 className="form-select" 
                                 aria-label=".form-select-sm example"
                                 name="obesity"
+                                value={medicalHistory.obesity}
                                 onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
                                 >
                                     <option value="">Select your answer</option>
@@ -241,6 +234,7 @@ const Profile = () => {
                                 className="form-select" 
                                 aria-label=".form-select-sm example"
                                 name="kidneyStones"
+                                value={medicalHistory.kidneyStones}
                                 onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
                                 >
                                     <option value="">Select your answer</option>
@@ -254,6 +248,7 @@ const Profile = () => {
                                 <select 
                                 className="form-select" 
                                 aria-label=".form-select-sm example"
+                                value={medicalHistory.inflammationOfTheColon}
                                 name="inflammationOfTheColon"
                                 onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
                                 >
@@ -269,6 +264,7 @@ const Profile = () => {
                                 className="form-select" 
                                 aria-label=".form-select-sm example"
                                 name="heartProblems"
+                                value={medicalHistory.heartProblems}
                                 onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
                                 >
                                     <option value="">Select your answer</option>
@@ -282,9 +278,9 @@ const Profile = () => {
                             <button type="button" data-bs-dismiss="modal" className="btn btn-outline-success go2" onClick={sendMedicalHistory}>Save changes</button>
                         </div>
                     </div>
-                </div>d
+                </div>
             </div>
-        </div>
+    
         </>
     )
 }
