@@ -37,9 +37,7 @@ const Navbar = () => {
 					<div className="container-fluid">
 						<div className="navbar-brand d-flex">
 							<i className="fas fa-seedling"></i>
-							<Link to='/'>
 							<p className="app-name">HEALTH</p>
-							</Link>
 						</div>
 						<div className="d-flex">
 

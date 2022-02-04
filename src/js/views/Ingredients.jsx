@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const Ingredients = () => {
@@ -12,6 +12,9 @@ const Ingredients = () => {
 
     return(
         <>
+        <div>
+            <Link to='/profile'><button type="button" className="btn btn-outline-success">Back profile</button></Link>
+        </div>
         <div className="container">
             <ul className="list-group">{store.ingredients.map((item) => {
                 return(
@@ -23,6 +26,7 @@ const Ingredients = () => {
                         <br/>
                         Amount in us: {item.amount["us"].value} {item.amount["us"].unit}
                     </li>
+                    
                     </>
                 )
                 
@@ -30,7 +34,7 @@ const Ingredients = () => {
         </div>
         <div className="row">
 			<div className="border-top border-success flor">
-			<p>Made by Diego and Arausy from 4geeks academy</p>
+                <p>Made by Diego and Arausy from 4geeks academy</p>
 			</div>
 	    </div>
         </>

@@ -61,3 +61,11 @@ body{
 .user{
     font-family: 'Nunito', sans-serif;
 }
+
+.information{
+    font-family: 'Nunito', sans-serif;
+}
+
+.personal-information{
+    font-size: 1.5rem;
+}

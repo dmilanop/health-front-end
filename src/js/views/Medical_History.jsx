@@ -43,6 +43,7 @@ const Medical_History = () => {
         let response = await actions.medicalHistory(newHistory)
 
         if (response.ok){
+            actions.getMedicalHistory();
             setMedicalHistory({
                 height: parseFloat(""),
                 weight: parseInt(""),

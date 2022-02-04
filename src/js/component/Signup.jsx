@@ -21,6 +21,7 @@ const Signup = () =>{
         let response = await actions.signUp(newUser);
 
         if (response.ok){
+            actions.getUser();
             setUser({
                 email: "",
                 password: "",

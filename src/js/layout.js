@@ -6,6 +6,7 @@ import Home from "./views/Home.jsx";
 import Medical_History from "./views/Medical_History.jsx";
 import Profile from "./views/Profile.jsx";
 import Ingredients from "./views/Ingredients.jsx";
+import UserInformation from "./views/UserInformation.jsx";
 import injectContext from "./store/appContext";
 
 import Navbar from "./component/Navbar.jsx";
@@ -35,6 +36,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/ingredients/:id">
 							<Ingredients />
+						</Route>
+						<Route exact path="/profile/userinformation">
+							<UserInformation />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

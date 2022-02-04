@@ -2,7 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	const apiKey = process.env.API_KEY
 	return {
 		store: {
-			URL_BASE: "https://3000-dmilanop-healthbackend-ughey406xti.ws-us30.gitpod.io",
+			URL_BASE: "https://3000-dmilanop-healthbackend-7ky6uifh9lw.ws-us30.gitpod.io",
 			user: "",
 			recipes:[],
 			ingredients:[],
@@ -23,7 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 					if (response.ok){
 						let data = await response.json();
-						setStore({...store, token: data.token});
+						setStore({...store, token: data.token, user: data.name});
 						localStorage.setItem("token", data.token);
 						return response;
 					}
