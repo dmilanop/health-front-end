@@ -1,0 +1,27 @@
+.fas{
+    color: rgb(19, 158, 19);
+}
+
+.app-name{
+    font-family: 'Nunito', sans-serif;
+    color:white;
+}
+
+.but1, .but2, .but3, .but4, .title-modal1, .go1, .title-modal2, .go2, .title-modal3, .form-label, .form-text, .card-text{
+    font-family: 'Nunito', sans-serif;
+}
+
+.navbar{
+    background-color: rgb(7, 44, 7);
+}
+
+.recipe{
+    display: flex;
+    margin-bottom: 50px;
+    padding-top: 10px;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+}
