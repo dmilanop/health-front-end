@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 const Cards = () =>{
+    const{ store } = useContext(Context)
+
     return(
         <>
+        {store.token == undefined ? (
+            <>
             <div className="container">
                 <div className="row">
                     <div className="col-12 col-md-4 col-lg-4">
@@ -31,6 +37,26 @@ const Cards = () =>{
                     </div>
                 </div>
             </div>
+            </>
+        ) : (
+            <div className="container recipe">
+                <div className="row">
+                   
+                        {store.recipes ? (store.recipes.map(item => {
+                            return(
+                                <div className="col-12 col-md-4 col-lg-4">
+                                    <div className="card" key={item.id} item={item}>
+                                        <img src={item.image} alt="..."/>
+                                        <div className="card-body info">
+                                            <p className="card-text">{item.title}</p>
+                                            <Link to={`/ingredients/${item.id}`}><button type="button" className="btn btn-outline-success">Recipe</button></Link>
+                                        </div>
+                                    </div>
+                                </div>)
+                        })) : null}
+                </div>
+            </div>
+        )}
         </>
     );
 }

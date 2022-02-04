@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import Cards from "../component/Cards.jsx";
 import { Context } from "../store/appContext"
 
 const Profile = () => {
@@ -48,18 +49,15 @@ const Profile = () => {
 
     return(
         <>
-        <div className="card card1">
-            <h5 className="card-header">Recipe</h5>
-            <div className="card-body">
-                <h5 className="card-title">Special title treatment</h5>
-                <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
+        <div className="container">
+
+            <h1 className="user">Here are your recipes {store.user}</h1>
+            
+            <Cards/>
+            
+            <button type="button" className="btn btn-outline-success but2 ms-5" data-bs-toggle="modal" data-bs-target="#signinModal">Update medical history</button>    
         
-        <button type="button" className="btn but2 ms-5" data-bs-toggle="modal" data-bs-target="#signinModal">Sign in</button>    
-        
-        <div className="modal fade" id="signinModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="signinModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -118,8 +116,8 @@ const Profile = () => {
                                 onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
                                 >
                                     <option value="">Select your answer</option>
-                                    <option value="yes">yes</option>
-                                    <option value="no">no</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
                                 </select>
                                 <div id="exHelp" className="form-text">Response yes/no</div>
                             </div>
@@ -178,8 +176,8 @@ const Profile = () => {
                                 onChange={e =>{setMedicalHistory({...medicalHistory, [e.target.name]:e.target.value});}}
                                 >
                                     <option value="">Select your answer</option>
-                                    <option value="yes">yes</option>
-                                    <option value="no">no</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
                                 </select>
                                 <div id="exHelp" className="form-text">Response yes/no</div>
                             </div>
@@ -279,8 +277,13 @@ const Profile = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-    
+            </div>	
+        </div>
+        <div className="row">
+            <div className="border-top border-success flor">
+                <p>Made by Diego and Arausy from 4geeks academy</p>
+			</div>
+	    </div>
         </>
     )
 }

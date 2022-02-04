@@ -4,7 +4,7 @@ import { Context } from "../store/appContext"
 
 
 const Medical_History = () => {
-    const{store, actions} = useContext(Context)
+    const{ actions } = useContext(Context)
     const[medicalHistory, setMedicalHistory] = useState({
         height: parseFloat(""),
         weight: parseInt(""),
@@ -59,7 +59,7 @@ const Medical_History = () => {
                 inflammationOfTheColon: "",
                 heartProblems: ""
             })
-            history.push('/')
+            history.push('/profile')
         }
         else{
             alert("oh oh, something went wrong, please try again")

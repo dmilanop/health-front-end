@@ -14,3 +14,14 @@
 .navbar{
     background-color: rgb(7, 44, 7);
 }
+
+.recipe{
+    display: flex;
+    margin-bottom: 50px;
+    padding-top: 10px;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+}

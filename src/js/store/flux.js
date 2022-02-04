@@ -5,6 +5,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			URL_BASE: "https://3000-dmilanop-healthbackend-ughey406xti.ws-us30.gitpod.io",
 			user: "",
 			recipes:[],
+			ingredients:[],
+			user_information:{},
 			medical_history:{},
 			token: localStorage.getItem("token") || undefined
 		},
@@ -92,6 +94,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {}
 			},
 
+			getUser: async () => {
+				const store = getStore();
+				try {
+					let response = await fetch(`${store.URL_BASE}/id_user`,{
+						method:'GET',
+						headers:{
+							"Content-Type": "application/json",
+							Authorization:`Bearer ${store.token}`
+						},
+						body: JSON.stringify()
+					})
+					let result = await response.json()
+					setStore({...store, user_information: result})
+				} catch (error) {}
+			},
+
 			resetMedicalHistory: async (user) => {
 				const store = getStore();
 				try {
@@ -128,13 +146,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 
 				try {
-					let response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=1&tags=vegetarian,dessert`)
+					let response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=vegetarian&diet=25&number=9`)
 					let result = await response.json()
-					console.log(result["recipes"])
-					setStore({...store, recipes: result })
+					setStore({...store, recipes: result.results })
 				} catch (error) {
 					
 				}
+			},
+
+			getIngredients: async (id) => {
+				const store = getStore();
+
+				try {
+					let response = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=${apiKey}`)
+					let result = await response.json()
+					setStore({...store, ingredients: result.ingredients})
+				} catch (error) {}
 			}
 		}
 	};

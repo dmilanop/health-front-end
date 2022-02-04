@@ -16,7 +16,8 @@ const Signin = () =>{
             setEmail("");
             setPassword("");
             actions.getMedicalHistory();
-            history.push("/")
+            actions.getUser();
+            history.push("/profile")
         }else{
             alert("oh oh, bad credentials")
         }
